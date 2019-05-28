@@ -1,13 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+@{ 
+    ViewBag.Title = @ViewBag.Title ?? "Basic Website";
+    ViewBag.Description = ViewBag.Description ?? "Basic Website";
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
     <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.Description">
+    @RenderSection("head", required: false)
+    @Styles.Render("~/Content/css")
 </head>
 <body>
     <div>
         @RenderBody()
     </div>
     @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>
