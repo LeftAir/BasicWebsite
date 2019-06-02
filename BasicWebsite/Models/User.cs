@@ -12,12 +12,16 @@ namespace BasicWebsite.Models
     {
         [Key]
         public int UserId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must fill up this field")]
+        [Range(5, 20, ErrorMessage = "Please enter a username with a length between 5 and 20.")]
         public string Username { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must fill up this field")]
+        [Range(8, 20, ErrorMessage = "Please enter a password with a length between 8 and 20.")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
-        [Required]
+        [Required(ErrorMessage = "You must fill up this field")]
         [EmailAddress]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         public virtual ICollection<Post> Posts { get; set; }

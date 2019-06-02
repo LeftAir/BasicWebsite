@@ -20,7 +20,7 @@ namespace BasicWebsite.Controllers
         {
             return View(db.Users.ToList());
         }
-
+       
         // GET: Users/Details/5
         public ActionResult Details(int? id)
         {
